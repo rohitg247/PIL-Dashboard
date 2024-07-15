@@ -3,7 +3,7 @@ services:
     name: PIL-Dashboard
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: gunicorn main:app
+    startCommand: gunicorn app:app
     envVars:
       - key: SQLALCHEMY_DATABASE_URI
         value: mysql+mysqlconnector://rohit:rohitdatabase@127.0.0.1:3306/wfms
