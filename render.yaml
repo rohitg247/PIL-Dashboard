@@ -2,7 +2,7 @@ services:
   - type: web
     name: PIL-Dashboard
     env: python
-    buildCommand: ""
+    buildCommand: "pip install -r requirements.txt"
     startCommand: gunicorn main:app
     envVars:
       - key: SQLALCHEMY_DATABASE_URI
