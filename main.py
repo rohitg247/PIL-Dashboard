@@ -39,6 +39,7 @@ mail = Mail(app)
 # serializer = URLSafeTimedSerializer(app.secret_key)
 serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
+print("SQLALCHEMY_DATABASE_URI:", os.getenv('SQLALCHEMY_DATABASE_URI'))
 print("MAIL_PORT:", os.getenv('MAIL_PORT'))
 print("MAIL_SERVER:", os.getenv('MAIL_SERVER'))
 print("MAIL_USERNAME:", os.getenv('MAIL_USERNAME'))
