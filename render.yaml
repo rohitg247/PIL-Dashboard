@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: PIL-Dashboard
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn main:app
+    envVars:
+      - key: SQLALCHEMY_DATABASE_URI
+        value: mysql+mysqlconnector://rohit:rohitdatabase@127.0.0.1:3306/wfms
+      - key: SECRET_KEY
+        value: your_secret_key_here
+      - key: MAIL_SERVER
+        value: smtp.example.com
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USE_TLS
+        value: "True"
+      - key: MAIL_USERNAME
+        value: your_email@example.com
+      - key: MAIL_PASSWORD
+        value: your_email_password
