@@ -1,0 +1,47 @@
+{% extends 'baseReport.html' %} 
+{% block title %}Orders Report{% endblock %}
+{% block content %}
+{{ super() }}
+{% block table_name %}Orders Report{% endblock %}
+<table class="report_table">
+    <thead>
+        <tr class="table-header-row">
+            <th class="table-header">Order ID</th>
+            <th class="table-header">Order Date</th>
+            <th class="table-header">Customer Name</th>
+            <th class="table-header">State</th>
+            <th class="table-header">City</th>
+        </tr>
+    </thead>
+    <tbody id="reportData">
+        {% for order in orders_data %}
+        <tr class="table-row">
+            <td class="table-cell">{{ order.Order_ID }}</td>
+            <td class="table-cell">{{ order.Order_Date }}</td>
+            <td class="table-cell">{{ order.CustomerName }}</td>
+            <td class="table-cell">{{ order.State }}</td>
+            <td class="table-cell">{{ order.City }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% block pagination_a %} <!-- Move pagination block inside the content block -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled" id="previousPage">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <!-- Dynamically generated pagination links will be inserted here -->
+      <li class="page-item disabled" id="nextPage">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block additional_js_a %} <!-- Move JavaScript code inside the additional_js block -->
+<script src="/static/js/pagination.js"></script>
+{% endblock %}
+
+{% endblock %}

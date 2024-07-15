@@ -1,0 +1,125 @@
+const sideLinks = document.querySelectorAll('.sidebar .side-menu li a:not(.logout)');
+
+sideLinks.forEach(item => {
+    const li = item.parentElement;
+    item.addEventListener('click', () => {
+        sideLinks.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
+
+const menuBar = document.querySelector('.content nav .bx.bx-menu');
+const sideBar = document.querySelector('.sidebar');
+
+menuBar.addEventListener('click', () => {
+    sideBar.classList.toggle('close');
+});
+
+const searchBtn = document.querySelector('.content nav form .form-input button');
+const searchBtnIcon = document.querySelector('.content nav form .form-input button .bx');
+const searchForm = document.querySelector('.content nav form');
+
+searchBtn.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault;
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchBtnIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchBtnIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 768) {
+        sideBar.classList.add('close');
+    } else {
+        sideBar.classList.remove('close');
+    }
+    if (window.innerWidth > 576) {
+        searchBtnIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+});
+
+const toggler = document.getElementById('theme-toggle');
+
+toggler.addEventListener('change', function () {
+    if (this.checked) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.sub-title').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // // const parent = e.currentTarget;
+            // const submenu = document.querySelector('.sub-menu');
+            // console.log(submenu)
+            // submenu.classList.toggle('active');
+            // // parent.classList.toggle('active');
+
+            const parent = e.currentTarget;
+            const submenu = parent.nextElementSibling; // Find the next sibling element
+
+            // Check if the submenu is currently active
+            const isActive = submenu.classList.contains('active');
+
+            // Remove 'active' class from all other .sub-title and .sub-menu elements
+
+            // document.querySelectorAll('.sub-title').forEach(title => {
+            //     title.classList.remove('active');
+            // });
+
+            document.querySelectorAll('.sub-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
+
+            // Toggle the corresponding .sub-title and .sub-menu
+            if (!isActive) {
+                submenu.classList.add('active');
+
+                // parent.classList.add('active');
+
+            }
+
+
+        });
+    });
+
+
+    subItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            subItems.forEach(subItem => {
+                subItem.classList.remove('active');
+            });
+            item.classList.add('active');
+            e.stopPropagation(); // Prevents the submenu from closing
+        });
+    });
+});
+// ==================================Profile Pic Dropdown======================================
+// function toggleDropdown() {
+//     var dropdown = document.getElementById("myDropdown");
+//     dropdown.classList.toggle("show");
+//   }
+  
+//   // Close the dropdown if the user clicks outside of it
+//   window.onclick = function(event) {
+//     if (!event.target.matches('.dropbtn')) {
+//       var dropdowns = document.getElementsByClassName("dropdown-content");
+//       for (var i = 0; i < dropdowns.length; i++) {
+//         var openDropdown = dropdowns[i];
+//         if (openDropdown.classList.contains('show')) {
+//           openDropdown.classList.remove('show');
+//         }
+//       }
+//     }
+//   }

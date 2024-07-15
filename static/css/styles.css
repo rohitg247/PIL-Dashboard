@@ -1,0 +1,138 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 5px 15px;
+}
+
+.navbar a:hover {
+  background-color: #555;
+}
+
+/* Position user dropdown to the right */
+.navbar-nav:last-child {
+  margin-left: auto;
+}
+
+/* Center and adjust size of profile picture */
+.dropdown-menu img {
+  display: block;
+  margin: 0 auto;
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust size as needed */
+  margin-top: 1rem;
+}
+
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background-color: #333;
+  border: 1px solid #fff; /* Adjust border color */
+}
+
+.dropdown-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #555;
+}
+
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 80px; /* Adjust according to your navbar height */
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Adjust background color as needed */
+    z-index: 999; /* Ensure it's above other content */
+    display: none; /* Hide by default */
+  }
+
+  .navbar-collapse.show {
+    display: block; /* Show when toggled */
+  }
+
+  .navbar-nav {
+    flex-direction: column; /* Display links vertically */
+    align-items: center; /* Align links to the start */
+    padding-top: 10px; /* Adjust spacing */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0; /* Reset margin for individual items */
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: static; /* Ensure dropdowns are not positioned absolutely */
+    width: 100%; /* Full width of navbar */
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item {
+    padding: 10px 20px; /* Adjust padding for dropdown items */
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    left: 10px;
+  }
+
+  .navbar-nav {
+    justify-content: flex-end;
+  }
+
+  /* Position user dropdown outside of navbar */
+  .navbar-nav:last-child {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+/* Styles for the user dropdown */
+.dropdown-menu .text-center {
+  width: 100%;
+}
+
+.dropdown-menu .dropdown-divider {
+  margin: 0;
+}

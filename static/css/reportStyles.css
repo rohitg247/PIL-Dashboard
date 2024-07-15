@@ -1,0 +1,92 @@
+/* report.css */
+
+/* Reset default table styles */
+.report_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Table header styles */
+.table-header-row {
+  background-color: var(--grey); /* Change background color to match dark theme */
+  color: var(--dark); /* Change text color to match dark theme */
+  font-weight: bold;
+}
+
+.table-header {
+    padding: 10px;
+    text-align: center;
+    /* text-align: left; */
+}
+
+/* Table row styles */
+.table-row:nth-child(even) {
+  background-color: var(--grey); /* Change background color to match dark theme */
+  color: var(--dark); /* Change text color to match dark theme */
+}
+/* Table row styles */
+.table-row:nth-child(odd) {
+  background-color: var(--light); /* Change background color to match dark theme */
+  color: var(--dark); /* Change text color to match dark theme */
+}
+
+.table-cell {
+    padding: 10px;
+    text-align: center;
+    /* text-align: left; */
+}
+
+/* Pagination Styling */
+.pagination {
+  margin-top: 20px;
+  margin: 20px auto; /* This will center the pagination horizontally */
+  text-align: center; /* Center the pagination links within the div */
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination .page-link {
+  color: var(--dark); /* Change text color to match dark theme */
+  border: 1px solid var(--dark); /* Change border color to match dark theme */
+  padding: 0.5rem 0.75rem;
+  margin: 0 2px;
+}
+
+.pagination .page-item.disabled .page-link {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  color: #6c757d;
+}
+
+.pagination .page-item.disabled .page-link:hover {
+  cursor: default;
+}
+
+.pagination .page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: var(--primary); /* Change background color to match dark theme */
+  border-color: var(--primary); /* Change border color to match dark theme */
+}
+
+.pagination .page-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .table-header-row {
+        display: none; /* Hide table header on small screens */
+    }
+
+    .table-row {
+        display: block;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table-cell::before {
+        content: attr(data-label); /* Show data label before each cell content */
+        font-weight: bold;
+        display: block;
+    }
+}

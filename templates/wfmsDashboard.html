@@ -1,0 +1,15 @@
+{% extends 'baseDB.html' %} {% block title %}WFMS Dashboard{% endblock %}
+{% block content %} {{ super() }}
+<!-- <h1>Welcome to the Dashboard</h1> -->
+<div>
+  <!-- Replace 'EMBED_URL' with the actual embed URL of your Power BI dashboard -->
+  <iframe
+    title="adv"
+    width="1200"
+    height="700"
+    src="https://app.powerbi.com/view?r=eyJrIjoiZTc4MmE5MGEtZjE1OC00ZmFkLWJiZjYtOTc1YTkzYjhiYzdkIiwidCI6IjIyMTNkNmNlLTczMjItNDcyMy04ZjQwLWZhMzM5MTk3MjRlOCJ9"
+    frameborder="0"
+    allowfullscreen="true"
+  ></iframe>
+</div>
+{% endblock %}

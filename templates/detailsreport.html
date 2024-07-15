@@ -1,0 +1,49 @@
+{% extends 'baseReport.html' %} {% block title %}Details Report{% endblock %} {%
+block content %} {{ super() }} {% block table_name %}Details Report{% endblock
+%}
+<table class="report_table">
+  <thead>
+    <tr class="table-header-row">
+      <th class="table-header">Order ID</th>
+      <th class="table-header">Amount</th>
+      <th class="table-header">Profit</th>
+      <th class="table-header">Quantity</th>
+      <th class="table-header">Category</th>
+      <th class="table-header">Sub-Category</th>
+      <th class="table-header">Payment Mode</th>
+    </tr>
+  </thead>
+  <tbody id="reportData">
+    {% for detail in details_data %}
+    <tr class="table-row">
+      <td class="table-cell">{{ detail.order_id }}</td>
+      <td class="table-cell">{{ detail.amount }}</td>
+      <td class="table-cell">{{ detail.profit }}</td>
+      <td class="table-cell">{{ detail.quantity }}</td>
+      <td class="table-cell">{{ detail.category }}</td>
+      <td class="table-cell">{{ detail.sub_category }}</td>
+      <td class="table-cell">{{ detail.paymentMode }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% block pagination_a %} <!-- Move pagination block inside the content block -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled" id="previousPage">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <!-- Dynamically generated pagination links will be inserted here -->
+      <li class="page-item disabled" id="nextPage">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block additional_js_a %} <!-- Move JavaScript code inside the additional_js block -->
+<script src="/static/js/pagination.js"></script>
+{% endblock %}
+
+{% endblock %} 

@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %}Base Report{% endblock %} {% block
+content %}
+<div class="header">
+  <div class="left">
+    <h1>{% block table_name %}{% endblock %}</h1>
+    <ul class="breadcrumb">
+      <li><a href="#"> Analytics </a></li>
+      /
+      <li><a href="#" class="active">Shop</a></li>
+    </ul>
+  </div>
+  <form action="{% if report_type == 'Orders Report' %}/download_csv_orders{% elif report_type == 'Attendance Report' %}/download_csv_attendance{% else %}/download_csv_details{% endif %}" method="post">
+    <button type="submit" class="report">
+      <i class="bx bx-cloud-download"></i>
+      <span>Download CSV</span>
+    </button>
+    <!-- <input type="hidden" name="csv_data" value="{{ csv_data }}" /> -->
+  </form>
+</div>
+{% endblock %} 
+{% block additional_css %}
+<link rel="stylesheet" href="/static/css/reportStyles.css" />
+{% endblock %}

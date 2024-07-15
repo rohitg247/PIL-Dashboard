@@ -1,0 +1,52 @@
+{% extends 'baseReport.html' %} 
+{% block title %}Attendance Report{% endblock %}
+{% block content %}
+{{ super() }}
+{% block table_name %}Attendance Report{% endblock %}
+<table class="report_table">
+    <thead>
+        <tr class="table-header-row">
+            <th class="table-header">Employee ID</th>
+            <th class="table-header">Employee Name</th>
+            <th class="table-header">Attendance</th>
+            <th class="table-header">Date</th>
+            <th class="table-header">Total Work Hours</th>
+            <th class="table-header">City Name</th>
+            <th class="table-header">Region</th>
+            <th class="table-header">State</th>
+        </tr>
+    </thead>
+    <tbody id="reportData"> <!-- Ensure you have this element with ID 'reportData' -->
+        {% for record in attendance_data %}
+        <tr class="table-row">
+            <td class="table-cell">{{ record.Employee_ID }}</td>
+            <td class="table-cell">{{ record.Employee_Name }}</td>
+            <td class="table-cell">{{ record.Attendance }}</td>
+            <td class="table-cell">{{ record.Date }}</td>
+            <td class="table-cell">{{ record.Total_Work_Hours }}</td>
+            <td class="table-cell">{{ record.City_Name }}</td>
+            <td class="table-cell">{{ record.Region }}</td>
+            <td class="table-cell">{{ record.State }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% block pagination_a %} <!-- Move pagination block inside the content block -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled" id="previousPage">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <!-- Dynamically generated pagination links will be inserted here -->
+      <li class="page-item disabled" id="nextPage">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block additional_js_a %} <!-- Move JavaScript code inside the additional_js block -->
+<script src="/static/js/pagination.js"></script>
+{% endblock %}
+{% endblock %}
