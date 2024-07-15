@@ -44,6 +44,8 @@ print("MAIL_PORT:", os.getenv('MAIL_PORT'))
 print("MAIL_SERVER:", os.getenv('MAIL_SERVER'))
 print("MAIL_USERNAME:", os.getenv('MAIL_USERNAME'))
 print("MAIL_PASSWORD:", os.getenv('MAIL_PASSWORD'))
+print("SECRET_KEY:", os.getenv('SECRET_KEY'))
+
 
 # User model
 class User(db.Model, UserMixin):
