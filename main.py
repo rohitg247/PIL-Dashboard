@@ -29,7 +29,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIF
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
-app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT'))
+app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
 app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS') == 'True'
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
@@ -38,6 +38,11 @@ db = SQLAlchemy(app)
 mail = Mail(app)
 # serializer = URLSafeTimedSerializer(app.secret_key)
 serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
+
+print("MAIL_PORT:", os.getenv('MAIL_PORT'))
+print("MAIL_SERVER:", os.getenv('MAIL_SERVER'))
+print("MAIL_USERNAME:", os.getenv('MAIL_USERNAME'))
+print("MAIL_PASSWORD:", os.getenv('MAIL_PASSWORD'))
 
 # User model
 class User(db.Model, UserMixin):
