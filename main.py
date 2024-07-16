@@ -121,11 +121,13 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        print(f"Username: {username}, Password: {password}")  # Debug line
         user = User.query.filter_by(username=username).first()
         if user and user.password == password:
             login_user(user)
             return redirect(url_for('dashboard'))
         else:
+            print("Invalid username or password")  # Debug line
             return render_template('login.html', message='Invalid username or password')
     return render_template('login.html')
 
