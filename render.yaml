@@ -6,7 +6,7 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: SQLALCHEMY_DATABASE_URI
-        value: mysql+mysqlconnector://if0_36912685:rohitkosqu@rohitappdb.42web.io/if0_36912685_Dashboard
+        value: mysql+mysqlconnector://if0_36912685:rohitkosqu@rohitappdb.42web.io:3306/if0_36912685_Dashboard
       - key: SECRET_KEY
         value: PIL-Kosqu
       - key: MAIL_SERVER
